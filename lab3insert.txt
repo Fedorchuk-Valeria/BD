@@ -1,0 +1,67 @@
+INSERT INTO beauty_salon.users (id, name, password) 
+VALUES (1, 'lena', '123qw'), 
+    (2, 'katya', '123we');
+
+INSERT INTO beauty_salon.users (name, password)
+VALUES ('polina', '678po'),
+    ('alesya', '098al'),
+    ('anna', '312an');
+
+INSERT INTO beauty_salon.users(name, password)
+VALUES ('sergey', 'ser732'),
+    ('vika', 'vi76ka'),
+    ('masha', 'qwepoi');
+
+INSERT INTO beauty_salon.clients
+VALUES (20000310, '+374445298765', 1), 
+    (20020211, '+375299087121', 5);
+
+INSERT INTO beauty_salon.services
+VALUES (1, 'manicure', 50, 120),
+    (2, 'pedicure', 40, 100),
+    (3, 'haircut', 70, 60),
+    (4, 'eyelash extension', 55, 180),
+    (5, 'eyebrow correction', 30, 45);
+
+INSERT INTO beauty_salon.offices
+VALUES (1, 'Minsk'),
+    (2, 'Pinsk'),
+    (3, 'Gomel');
+
+INSERT INTO beauty_salon.masters
+VALUES (2, 1, 2),
+    (1, 3, 3),
+    (3, 2, 4);
+
+INSERT INTO beauty_salon.credit_cards
+VALUES (1, 985634, 1),
+    (2, 845602, 5);
+
+INSERT INTO beauty_salon.actions
+VALUES (1, 1, 'authorization'),
+    (2, 5, 'register'),
+    (3, 5, 'payment');
+
+INSERT INTO beauty_salon.admins
+VALUES ('sergeyadmin@mail.ru', 6, 1),
+    ('viktoriaadmin@mail.ru', 7, 2),
+    ('mariaadmin@mail.ru', 8, 3);
+
+INSERT INTO beauty_salon.registers 
+VALUES (1, 1, 3, '15:00', 20221124),
+    (2, 5, 4, '15:30', 20221125);
+
+INSERT INTO beauty_salon.registers 
+VALUES (3, 5, 2, '13:00', 20221126);
+
+INSERT INTO beauty_salon.payments
+VALUES (1, 2, 2, 70);
+
+INSERT INTO beauty_salon.reviews
+VALUES (1, 1, NULL, 4, 2, 20220912);
+
+INSERT INTO beauty_salon.requests (id, client_id, service_id, office_id)
+VALUES (1, 5, 1, 1);
+
+INSERT INTO beauty_salon.replies (id, request_id, master_id, offer_date, offer_time)
+VALUES (1, 1, 3, 20221127, '12:00');
