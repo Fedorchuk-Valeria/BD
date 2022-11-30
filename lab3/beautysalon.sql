@@ -103,8 +103,8 @@ CREATE TABLE IF NOT EXISTS beauty_salon.replies (
     FOREIGN KEY (master_id) REFERENCES beauty_salon.masters(id),
     FOREIGN KEY (request_id) REFERENCES beauty_salon.requests(id)
 );
-ALTER TABLE beauty_salon.offices
-ADD CONSTRAINT UNIQUE (address);
+-- ALTER TABLE beauty_salon.offices
+-- ADD CONSTRAINT UNIQUE (address);
 -- CREATE INDEX price ON beauty_salon.services(price);
 -- SELECT * FROM beauty_salon.services ORDER BY price;
 -- CREATE INDEX duration ON beauty_salon.services(duration);
@@ -113,3 +113,43 @@ ADD CONSTRAINT UNIQUE (address);
 -- SELECT * FROM beauty_salon.registers WHERE client_id = 5 ORDER BY reg_date;
 -- CREATE UNIQUE INDEX address_uniq ON beauty_salon.offices(address);
 -- SELECT * FROM beauty_salon.offices  WHERE address = 'Pinsk';
+-- SELECT *
+-- FROM beauty_salon.services
+-- WHERE duration < 120
+--     AND price <= 60;
+-- SELECT * FROM beauty_salon.requests WHERE prefered_date IS NULL;
+-- UPDATE  beauty_salon.replies
+-- SET approved = true WHERE id = 1;
+-- SELECT * FROM beauty_salon.replies;
+-- SELECT * FROM beauty_salon.services
+-- WHERE price < 55
+-- LIMIT 2;
+-- SELECT MIN(price)
+-- FROM beauty_salon.services;
+-- SELECT COUNT(office_id)
+-- FROM beauty_salon.masters
+-- where office_id = 3;
+-- SELECT SUM(price)
+-- FROM beauty_salon.payments
+-- WHERE card_id = 2;
+-- SELECT beauty_salon.masters.id, beauty_salon.services.name, beauty_salon.offices.address
+-- FROM ((beauty_salon.masters
+-- INNER JOIN beauty_salon.offices ON beauty_salon.masters.office_id = beauty_salon.offices.id)
+-- INNER JOIN beauty_salon.services ON beauty_salon.services.id = beauty_salon.masters.service_id);
+-- SELECT COUNT(id), service_id
+-- FROM beauty_salon.masters
+-- GROUP BY service_id;
+-- SELECT *
+-- FROM beauty_salon.services
+-- WHERE duration < 100 AND
+-- EXISTS
+-- (SELECT price FROM beauty_salon.services WHERE price < 50);
+-- SELECT id, service_id,
+-- CASE 
+-- WHEN service_id = 1 THEN 'manicure master'
+-- WHEN service_id = 2 THEN 'pedicure master'
+-- WHEN service_id = 3 THEN 'haircut master'
+-- WHEN service_id = 4 THEN 'eyelash extension master'
+-- WHEN service_id = 5 THEN 'eyebrow correction master'
+-- END AS master_type
+-- FROM beauty_salon.masters;
