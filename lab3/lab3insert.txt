@@ -7,6 +7,9 @@ VALUES ('polina', '678po'),
     ('alesya', '098al'),
     ('anna', '312an');
 
+INSERT INTO beauty_salon.users (name, password)
+VALUES ('sasha', 'top3271');
+
 INSERT INTO beauty_salon.users(name, password)
 VALUES ('sergey', 'ser732'),
     ('vika', 'vi76ka'),

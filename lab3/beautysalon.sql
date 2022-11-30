@@ -47,9 +47,7 @@ CREATE TABLE IF NOT EXISTS beauty_salon.actions (
     user_id INT NOT NULL,
     type_of_action ENUM(
         'registration',
-        'authorization',
         'register',
-        'payment',
         'review',
         'request'
     ) NOT NULL,
@@ -153,3 +151,51 @@ CREATE TABLE IF NOT EXISTS beauty_salon.replies (
 -- WHEN service_id = 5 THEN 'eyebrow correction master'
 -- END AS master_type
 -- FROM beauty_salon.masters;
+-- CREATE TRIGGER beauty_salon.add_log AFTER INSERT ON beauty_salon.users
+-- FOR EACH ROW BEGIN
+--     INSERT INTO beauty_salon.actions SET user_id = NEW.id, type_of_action = 'registration';
+-- END;
+-- CREATE TRIGGER beauty_salon.add_reglog
+-- AFTER
+-- INSERT ON beauty_salon.registers FOR EACH ROW BEGIN
+-- INSERT INTO beauty_salon.actions
+-- SET user_id = NEW.client_id,
+--     type_of_action = 'register';
+-- END;
+-- CREATE TRIGGER beauty_salon.add_revlog
+-- AFTER
+-- INSERT ON beauty_salon.reviews FOR EACH ROW BEGIN
+-- INSERT INTO beauty_salon.actions
+-- SET user_id = NEW.client_id,
+--     type_of_action = 'review';
+-- END;
+-- CREATE TRIGGER beauty_salon.add_reqlog
+-- AFTER
+-- INSERT ON beauty_salon.requests FOR EACH ROW BEGIN
+-- INSERT INTO beauty_salon.actions
+-- SET user_id = NEW.client_id,
+--     type_of_action = 'request';
+-- END;
+-- CREATE PROCEDURE beauty_salon.Select_user_by_id (IN get_id INT)
+-- begin
+-- SELECT * FROM beauty_salon.users WHERE id = get_id;
+-- END;
+-- CREATE PROCEDURE beauty_salon.Select_all_services()
+-- BEGIN
+-- SELECT * FROM beauty_salon.services;
+-- END;
+-- CREATE PROCEDURE beauty_salon.Select_master_by_service (IN get_service_id INT)
+-- BEGIN
+-- SELECT * FROM beauty_salon.masters WHERE service_id = get_service_id;
+-- END;
+-- CREATE PROCEDURE beauty_salon.Select_master_by_office (IN get_office_id INT)
+-- BEGIN
+-- SELECT * FROM beauty_salon.masters WHERE office_id = get_office_id;
+-- END;
+-- CREATE PROCEDURE beauty_salon.Select_office_by_address (IN get_address VARCHAR(30))
+-- BEGIN
+-- SELECT * FROM beauty_salon.offices WHERE address = get_address;
+-- END;
+-- CALL beauty_salon.Select_all_services();
+-- CALL beauty_salon.Select_user_by_id(3);
+CALL beauty_salon.Select_master_by_office(3);
